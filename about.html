@@ -10,48 +10,37 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
-        body { font-family: 'Heebo', sans-serif; }
+        body { font-family: 'Heebo', sans-serif; overflow-x: hidden; }
         .bg-pattern { background-image: radial-gradient(#C8A45E 1px, transparent 1px); background-size: 30px 30px; opacity: 0.05; }
     </style>
 </head>
 <body class="bg-white flex flex-col min-h-screen text-gray-800">
 
-<nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+<nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300 border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-24 items-center">
+        <div class="flex justify-between h-20 md:h-24 items-center">
+
             <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='index.html'">
-                <img src="images/logo1.png" alt="לוגו YK" class="h-20 w-auto ml-3">
+                <img src="images/logo1.png" alt="לוגו YK" class="h-10 md:h-20 w-auto ml-3 object-contain">
                 <div class="border-r-2 border-gray-300 pr-3 mr-1">
-                    <span class="block text-xl font-bold text-[#0E2441] leading-none">יוסף קריספל</span>
-                    <span class="block text-sm text-[#C8A45E] font-medium tracking-wide">משרד עורכי דין, גישור ובוררות</span>
+                    <span class="block text-base md:text-xl font-bold text-[#0E2441] leading-none">יוסף קריספל</span>
+                    <span class="block text-[10px] md:text-sm text-[#C8A45E] font-medium tracking-wide">משרד עורכי דין וגישור</span>
                 </div>
             </div>
 
             <div class="hidden md:flex space-x-8 space-x-reverse items-center">
-                <a href="index.html" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
-                    בית
-                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="about.html" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
-                    אודות
-                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="team.html" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
-                    נבחרת המשרד
-                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="index.html#practices" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
-                    תחומי עיסוק
-                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="contact.html" class="bg-[#0E2441] text-white px-7 py-2.5 rounded-full hover:bg-[#C8A45E] transition duration-300 font-bold shadow-lg hover:shadow-[#C8A45E]/30 transform hover:-translate-y-0.5">
+                <a href="index.html" class="text-gray-700 hover:text-[#C8A45E] font-medium transition">בית</a>
+                <a href="about.html" class="text-[#C8A45E] font-bold transition">אודות</a>
+                <a href="team.html" class="text-gray-700 hover:text-[#C8A45E] font-medium transition">נבחרת המשרד</a>
+                <a href="contact.html" class="bg-[#0E2441] text-white px-6 py-2 rounded-full hover:bg-[#C8A45E] transition duration-300 font-bold shadow-lg hover:shadow-[#C8A45E]/30 transform hover:-translate-y-0.5">
                     צור קשר
                 </a>
             </div>
 
-            <div class="md:hidden">
-                <button id="mobileMenuBtn" type="button" class="text-[#0E2441] hover:text-[#C8A45E] focus:outline-none">
-                    <i class="bi bi-list text-4xl"></i>
+            <div class="md:hidden flex items-center">
+                <a href="contact.html" class="bg-[#0E2441] text-white text-xs px-3 py-1.5 rounded-full ml-3 font-bold">צור קשר</a>
+                <button id="mobileMenuBtn" type="button" class="text-[#0E2441] hover:text-[#C8A45E] focus:outline-none p-2">
+                    <i class="bi bi-list text-3xl"></i>
                 </button>
             </div>
         </div>
@@ -59,37 +48,38 @@
 
     <div id="mobileMenu" class="hidden md:hidden bg-white border-t absolute w-full shadow-xl">
         <div class="px-4 pt-2 pb-6 space-y-2">
-            <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md">בית</a>
-            <a href="about.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md">אודות המשרד</a>
-            <a href="team.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md">הצוות שלנו</a>
-            <a href="contact.html" class="block px-3 py-3 text-base font-bold text-[#C8A45E] hover:bg-gray-50 rounded-md">צור קשר</a>
+            <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md border-b border-gray-50">בית</a>
+            <a href="about.html" class="block px-3 py-3 text-base font-bold text-[#C8A45E] bg-gray-50 rounded-md">אודות המשרד</a>
+            <a href="team.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md border-b border-gray-50">הצוות שלנו</a>
+            <a href="contact.html" class="block px-3 py-3 text-base font-bold text-[#0E2441] mt-2">צור קשר >></a>
         </div>
     </div>
 </nav>
 
-
-<header class="relative pt-40 pb-20 bg-[#0E2441] overflow-hidden text-white">
+<header class="relative pt-28 md:pt-40 pb-16 md:pb-20 bg-[#0E2441] overflow-hidden text-white">
     <div class="absolute inset-0 bg-pattern z-0"></div>
     <div class="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-[#C8A45E]/20 to-transparent z-0"></div>
 
     <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
-        <p class="text-[#C8A45E] font-bold tracking-[0.2em] mb-4 text-sm uppercase" data-aos="fade-down">הסיפור שלנו</p>
-        <h1 class="text-5xl md:text-7xl font-black mb-6" data-aos="fade-up">מסורת פוגשת <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#C8A45E] to-yellow-300">חדשנות</span></h1>
-        <p class="text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-[#C8A45E] font-bold tracking-[0.2em] mb-3 md:mb-4 text-xs md:text-sm uppercase" data-aos="fade-down">הסיפור שלנו</p>
+        <h1 class="text-4xl md:text-7xl font-black mb-4 md:mb-6 leading-tight" data-aos="fade-up">
+            מסורת פוגשת <br class="md:hidden"> <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#C8A45E] to-yellow-300">חדשנות</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed px-2" data-aos="fade-up" data-aos-delay="100">
             כשניסיון משפטי עשיר חובר לטכנולוגיה וקידמה, התוצאה היא מעטפת הגנה מושלמת עבורך.
         </p>
     </div>
 </header>
 
-<section class="py-24">
+<section class="py-16 md:py-24 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div data-aos="fade-left">
-                <h2 class="text-4xl font-bold text-[#0E2441] mb-8 relative inline-block">
-                    יותר ממשרד עורכי דין..
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div data-aos="fade-left" class="order-2 lg:order-1">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#0E2441] mb-6 md:mb-8 relative inline-block">
+                    יותר ממשרד עורכי דין
                     <span class="absolute -bottom-2 right-0 w-1/2 h-1 bg-[#C8A45E]"></span>
                 </h2>
-                <div class="space-y-6 text-lg text-gray-600 leading-relaxed text-justify pl-4">
+                <div class="space-y-4 md:space-y-6 text-base md:text-lg text-gray-600 leading-relaxed text-justify pl-0 md:pl-4">
                     <p>
                         <span class="text-4xl float-right ml-2 text-[#C8A45E] font-serif">מ</span>שרד עורכי הדין יוסף קריספל הוקם מתוך הבנה שהעולם המשפטי משתנה. הלקוחות של היום לא מחפשים רק "עורך דין שיגיש מסמכים", אלא שותף אסטרטגי שיודע לראות את התמונה הגדולה.
                     </p>
@@ -97,14 +87,14 @@
                         מייסד המשרד, עו"ד יוסף קריספל, הביא עמו עשרות שנים של ניסיון בניהול משברים מורכבים בתוך המשפחה ובעולם העסקי. הגישה שלו תמיד הייתה: "קודם כל בני אדם, אחר כך סעיפי חוק".
                     </p>
                     <p>
-                        עם הצטרפותו של עו"ד מאור קריספל, מפתח תוכנה ומומחה Ai, המשרד עבר מהפכה דיגיטלית. היכולת לנתח נתונים, להשתמש בכלים טכנולוגיים מתקדמים ולייעל תהליכים, הפכה את המשרד ל-One Stop Shop עבור לקוחות המחפשים שירות ברמה של המאה ה-21.
+                        עם הצטרפותו של עו"ד ומהנדס מאור קריספל, המשרד עבר מהפכה דיגיטלית. היכולת לנתח נתונים, להשתמש בכלים טכנולוגיים מתקדמים ולייעל תהליכים, הפכה את המשרד ל-One Stop Shop עבור לקוחות המחפשים שירות ברמה של המאה ה-21.
                     </p>
                 </div>
             </div>
 
-            <div class="relative" data-aos="fade-right">
-                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-[#C8A45E] rounded-3xl z-0"></div>
-                <img src="images/פרופיל%20מאוד_חדש.jpg" alt="משרד עורכי דין קריספל" class="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px]">
+            <div class="relative order-1 lg:order-2" data-aos="fade-right">
+                <div class="absolute -top-4 -right-4 w-full h-full border-2 border-[#C8A45E] rounded-3xl z-0 hidden md:block"></div>
+                <img src="images/פרופיל_אבא1.jpg" alt="משרד עורכי דין קריספל" class="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[300px] md:h-[500px]">
 
                 <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-2xl shadow-xl z-20 border-t-4 border-[#C8A45E] hidden md:block">
                     <div class="flex gap-8 text-center divide-x divide-x-reverse divide-gray-200">
@@ -123,31 +113,31 @@
     </div>
 </section>
 
-<section class="py-24 bg-gray-50 relative overflow-hidden">
-    <div class="absolute top-0 left-0 text-[300px] text-gray-200 opacity-20 font-black z-0 select-none -translate-y-1/2">YK</div>
+<section class="py-16 md:py-24 bg-gray-50 relative overflow-hidden">
+    <div class="absolute top-0 left-0 text-[150px] md:text-[300px] text-gray-200 opacity-20 font-black z-0 select-none -translate-y-1/2">YK</div>
 
     <div class="max-w-5xl mx-auto px-4 relative z-10">
-        <h2 class="text-3xl font-bold text-center text-[#0E2441] mb-16">ה-DNA שלנו</h2>
+        <h2 class="text-3xl font-bold text-center text-[#0E2441] mb-12 md:mb-16">ה-DNA שלנו</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 group">
-                <div class="w-16 h-16 bg-[#0E2441] rounded-full flex items-center justify-center text-white text-3xl mb-6 group-hover:bg-[#C8A45E] transition">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 group">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-[#0E2441] rounded-full flex items-center justify-center text-white text-2xl md:text-3xl mb-4 md:mb-6 group-hover:bg-[#C8A45E] transition">
                     <i class="bi bi-person-heart"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-3 text-[#0E2441]">אנושיות לפני הכל</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">אנחנו לא מטפלים ב"תיקים", אלא באנשים. הרגישות והדיסקרטיות הן נר לרגלינו, במיוחד ברגעים הרגישים של דיני המשפחה.</p>
             </div>
 
-            <div class="bg-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 group mt-0 md:-mt-8">
-                <div class="w-16 h-16 bg-[#0E2441] rounded-full flex items-center justify-center text-white text-3xl mb-6 group-hover:bg-[#C8A45E] transition">
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 group mt-0 md:-mt-8">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-[#0E2441] rounded-full flex items-center justify-center text-white text-2xl md:text-3xl mb-4 md:mb-6 group-hover:bg-[#C8A45E] transition">
                     <i class="bi bi-cpu"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-3 text-[#0E2441]">טכנולוגיה וחדשנות</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">שילוב כלים הנדסיים לניתוח ראיות, חישובי נזק מדויקים וניהול תיק דיגיטלי חכם שחוסך זמן וכסף.</p>
             </div>
 
-            <div class="bg-white p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 group">
-                <div class="w-16 h-16 bg-[#0E2441] rounded-full flex items-center justify-center text-white text-3xl mb-6 group-hover:bg-[#C8A45E] transition">
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 group">
+                <div class="w-14 h-14 md:w-16 md:h-16 bg-[#0E2441] rounded-full flex items-center justify-center text-white text-2xl md:text-3xl mb-4 md:mb-6 group-hover:bg-[#C8A45E] transition">
                     <i class="bi bi-briefcase-fill"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-3 text-[#0E2441]">מקצוענות ללא פשרות</h3>
@@ -157,11 +147,11 @@
     </div>
 </section>
 
-<section class="py-20 bg-[#0E2441] text-white text-center">
+<section class="py-16 md:py-20 bg-[#0E2441] text-white text-center">
     <div class="max-w-3xl mx-auto px-4" data-aos="zoom-in">
-        <h2 class="text-4xl font-bold mb-6">מוכנים לצאת לדרך משותפת?</h2>
-        <p class="text-xl text-gray-300 mb-10">הצוות שלנו ממתין לפנייה שלכם, כדי להעניק לכם את השקט הנפשי שמגיע לכם.</p>
-        <a href="contact.html" class="inline-block bg-[#C8A45E] text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-[#0E2441] transition duration-300 shadow-xl text-lg">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-6">מוכנים לצאת לדרך משותפת?</h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-8 md:mb-10">הצוות שלנו ממתין לפנייה שלכם, כדי להעניק לכם את השקט הנפשי שמגיע לכם.</p>
+        <a href="contact.html" class="inline-block bg-[#C8A45E] text-white font-bold py-3 md:py-4 px-8 md:px-10 rounded-full hover:bg-white hover:text-[#0E2441] transition duration-300 shadow-xl text-lg">
             תיאום פגישת היכרות
         </a>
     </div>
@@ -172,6 +162,13 @@
 </footer>
 
 <script src="main.js"></script>
-<script>AOS.init();</script>
+<script>
+    // אתחול האנימציות
+    AOS.init({
+        once: true,
+        offset: 50,
+        duration: 800,
+    });
+</script>
 </body>
 </html>
