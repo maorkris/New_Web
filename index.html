@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="משרד עורכי דין יוסף קריספל - מומחים בדיני משפחה, מקרקעין ומשפט מסחרי. שירות בוטיק אישי ומקצועי.">
+    <title>יוסף קריספל | משרד עורכי דין וגישור</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        body { font-family: 'Heebo', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        .gold-text { color: #C8A45E; }
+        .gold-bg { background-color: #C8A45E; }
+        .royal-blue-bg { background-color: #0E2441; }
+        .cream-bg { background-color: #F9F7F1; }
+
+        /* אנימציית Hero */
+        .hero-video-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(14, 36, 65, 0.85); /* כחול רויאל כהה שקוף */
+            z-index: -1;
+        }
+
+        /* עיצוב כרטיסים */
+        .service-card {
+            background-color: #F9F7F1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border-color: #C8A45E;
+        }
+
+        /* סרגל גלילה */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9F7F1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C8A45E;
+            border-radius: 5px;
+        }
+
+        /* לוגו */
+        .nav-logo {
+            height: 60px;
+            width: auto;
+        }
+    </style>
+</head>
+<body class="cream-bg text-gray-800">
+
+<nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-24 items-center">
+            <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+                <img src="images/logo1.png" alt="לוגו YK" class="h-20 w-auto ml-3">
+                <div class="border-r-2 border-gray-300 pr-3 mr-1">
+                    <span class="block text-xl font-bold text-[#0E2441] leading-none">יוסף קריספל</span>
+                    <span class="block text-sm text-[#C8A45E] font-medium tracking-wide">משרד עורכי דין, גישור ובוררות</span>
+                </div>
+            </div>
+
+            <div class="hidden md:flex space-x-8 space-x-reverse items-center">
+                <a href="index.html" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
+                    בית
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="about.html" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
+                    אודות
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="team.html" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
+                    נבחרת המשרד
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#practices" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
+                    תחומי עיסוק
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="contact.html" class="bg-[#0E2441] text-white px-7 py-2.5 rounded-full hover:bg-[#C8A45E] transition duration-300 font-bold shadow-lg hover:shadow-[#C8A45E]/30 transform hover:-translate-y-0.5">
+                    צור קשר
+                </a>
+            </div>
+
+            <div class="md:hidden">
+                <button id="mobileMenuBtn" type="button" class="text-[#0E2441] hover:text-[#C8A45E] focus:outline-none">
+                    <i class="bi bi-list text-4xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t absolute w-full shadow-xl">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md">בית</a>
+            <a href="about.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md">אודות המשרד</a>
+            <a href="team.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md">הצוות שלנו</a>
+            <a href="contact.html" class="block px-3 py-3 text-base font-bold text-[#C8A45E] hover:bg-gray-50 rounded-md">צור קשר</a>
+        </div>
+    </div>
+</nav>
+
+<section id="home" class="relative h-screen overflow-hidden flex items-center justify-center">
+
+    <div class="absolute inset-0 w-full h-full z-0">
+        <video autoplay muted playsinline class="w-full h-full object-cover">
+            <source src="images/Cinematic_Law_Firm_Header_Video.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-[#0E2441]/80 mix-blend-multiply"></div>
+    </div>
+
+    <div class="hidden lg:block absolute bottom-0 left-[17%] z-20 h-[85vh] w-auto animate-fade-in-up">
+        <img src="images/yosef-hero.png"
+             alt="עו"ד יוסף קריספל"
+        class="h-full w-auto object-contain object-bottom drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] hover:scale-105 transition duration-700">
+    </div>
+
+    <div class="relative z-30 max-w-7xl mx-auto px-4 w-full flex justify-center lg:justify-start">
+        <div class="text-center lg:text-right max-w-3xl lg:mr-[10%]" data-aos="fade-up" data-aos-duration="1200">
+            <img src="images/logo1.png" alt="לוגו YK" class="h-24 mx-auto lg:mx-0 mb-6 drop-shadow-xl">
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight drop-shadow-lg">
+                ניסיון שיוצר <span class="text-[#C8A45E]">ביטחון</span>.<br>
+                אנושיות שמביאה <span class="text-[#C8A45E]">שקט</span>.
+            </h1>
+
+            <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto lg:mx-0 font-light border-r-4 border-[#C8A45E] pr-6">
+                משרד בוטיק לדיני משפחה, מקרקעין ומשפט מסחרי.<br>
+                אסטרטגיה משפטית מנצחת, בליווי אישי ורגיש.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                <a href="#contact" class="bg-[#C8A45E] text-white font-bold py-4 px-10 rounded-full shadow-lg hover:bg-[#b5952f] transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2">
+                    <span>לתיאום פגישת ייעוץ</span>
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <a href="#practices" class="bg-transparent border-2 border-white text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-[#0E2441] transition text-lg backdrop-blur-sm">
+                    תחומי המומחיות
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+        animation: fadeInUp 1.5s ease-out forwards;
+    }
+</style>
+
+<section id="about" class="py-24 cream-bg overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative" data-aos="fade-left" data-aos-duration="1000">
+                <div class="w-full h-[500px] bg-gray-300 rounded-3xl overflow-hidden shadow-2xl relative z-10">
+                    <img src="images/פרופיל_אבא1.jpg" alt="עו"ד יוסף קריספל" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 right-0 bg-white/90 backdrop-blur-sm p-6 rounded-tl-3xl">
+                        <p class="text-2xl font-bold text-[#0E2441]">עו"ד יוסף קריספל</p>
+                        <p class="text-[#C8A45E] font-medium">מייסד המשרד</p>
+                    </div>
+                </div>
+                <div class="absolute top-10 -left-10 w-full h-full border-4 border-[#C8A45E] rounded-3xl z-0 opacity-30"></div>
+            </div>
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <h2 class="text-4xl font-bold text-[#0E2441] mb-8">יותר מעורך דין, <span class="gold-text">שותף לדרך</span></h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                    אני מאמין שמאחורי כל תיק משפטי עומד אדם, משפחה או עסק עם חלומות וחששות. המשרד שלי הוקם מתוך הבנה עמוקה זו, במטרה להעניק לא רק מצוינות משפטית ללא פשרות, אלא גם ליווי אישי, קשוב ואנושי.
+                    <br><br>
+                    כמגשר מוסמך וכעורך דין בעל ניסיון עשיר, אני תמיד חותר לפתרון החכם והיעיל ביותר עבורך – זה שמשיג את המטרה תוך שמירה על האינטרסים שלך לטווח הארוך.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="flex items-start">
+                        <i class="bi bi-patch-check-fill gold-text text-3xl ml-4 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-[#0E2441] mb-2">ניסיון מוכח</h4>
+                            <p class="text-gray-600 text-sm">עשרות שנות ניסיון והצלחות.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="bi bi-heart-pulse-fill gold-text text-3xl ml-4 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-[#0E2441] mb-2">ליווי אישי</h4>
+                            <p class="text-gray-600 text-sm">זמינות גבוהה ואוזן קשבת.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="bi bi-lightbulb-fill gold-text text-3xl ml-4 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-[#0E2441] mb-2">חשיבה יצירתית</h4>
+                            <p class="text-gray-600 text-sm">פתרונות משפטיים חכמים.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="bi bi-shield-fill-check gold-text text-3xl ml-4 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-[#0E2441] mb-2">שקיפות מלאה</h4>
+                            <p class="text-gray-600 text-sm">אתם תמיד בתמונה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="practices" class="py-24 bg-white relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-[#0E2441] mb-4">תחומי המומחיות שלנו</h2>
+            <div class="w-24 h-1.5 gold-bg mx-auto rounded-full mb-6"></div>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">מעטפת משפטית מקיפה, מדויקת ומותאמת אישית לכל אתגר.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="service-card p-10 rounded-3xl border-t-4 border-transparent hover:border-[#C8A45E] relative overflow-hidden" data-aos="zoom-in-up" data-aos-delay="100">
+                <div class="absolute -right-10 -top-10 text-[#C8A45E] opacity-5 text-9xl"><i class="bi bi-buildings"></i></div>
+                <div class="text-5xl text-[#C8A45E] mb-6 relative z-10"><i class="bi bi-buildings"></i></div>
+                <h3 class="text-2xl font-bold text-[#0E2441] mb-4 relative z-10">מקרקעין ונדל"ן</h3>
+                <p class="text-gray-600 leading-relaxed relative z-10">ליווי עסקאות מכר ורכישה, שכירות מסחרית ופרטית, תמ"א 38 והתחדשות עירונית. אנו בודקים כל פרט בחוזה כדי להבטיח לכם שקט נפשי ועסקה בטוחה.</p>
+            </div>
+            <div class="service-card p-10 rounded-3xl border-t-4 border-transparent hover:border-[#C8A45E] relative overflow-hidden" data-aos="zoom-in-up" data-aos-delay="200">
+                <div class="absolute -right-10 -top-10 text-[#C8A45E] opacity-5 text-9xl"><i class="bi bi-people-fill"></i></div>
+                <div class="text-5xl text-[#C8A45E] mb-6 relative z-10"><i class="bi bi-people-fill"></i></div>
+                <h3 class="text-2xl font-bold text-[#0E2441] mb-4 relative z-10">דיני משפחה וגישור</h3>
+                <p class="text-gray-600 leading-relaxed relative z-10">טיפול רגיש ומקצועי בהליכי גירושין, עריכת צוואות, ניהול ירושות, הסכמי ממון ומשמורת. אנו שמים דגש על פתרונות גישור בדרכי נועם היכן שניתן.</p>
+            </div>
+            <div class="service-card p-10 rounded-3xl border-t-4 border-transparent hover:border-[#C8A45E] relative overflow-hidden" data-aos="zoom-in-up" data-aos-delay="300">
+                <div class="absolute -right-10 -top-10 text-[#C8A45E] opacity-5 text-9xl"><i class="bi bi-briefcase-fill"></i></div>
+                <div class="text-5xl text-[#C8A45E] mb-6 relative z-10"><i class="bi bi-briefcase-fill"></i></div>
+                <h3 class="text-2xl font-bold text-[#0E2441] mb-4 relative z-10">משפט מסחרי ועסקים</h3>
+                <p class="text-gray-600 leading-relaxed relative z-10">ייעוץ שוטף לחברות ועסקים, עריכת חוזים מסחריים, הקמת חברות, פירוקים וניהול סיכונים משפטיים. השותף האסטרטגי שלכם לצמיחה עסקית בטוחה.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="py-24 royal-blue-bg text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-[#0B1D33] skew-x-12 transform origin-top-right z-0 opacity-50"></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-left">
+                    <h2 class="text-5xl font-bold mb-6">בואו נדבר על <span class="gold-text">העתיד</span> שלכם</h2>
+                    <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+                        אל תישארו עם השאלות והחששות לבד. אנו מזמינים אתכם לפגישת ייעוץ ראשונית, דיסקרטית וללא התחייבות, בה נבחן יחד את המקרה ונשרטט את הדרך הטובה ביותר קדימה.
+                    </p>
+                    <div class="space-y-8">
+                        <div class="flex items-center group">
+                            <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center ml-6 group-hover:bg-[#C8A45E] transition">
+                                <i class="bi bi-telephone-fill gold-text text-2xl group-hover:text-white transition"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400 mb-1">טלפון</p>
+                                <p class="text-xl font-bold">052-3849777</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center group">
+                            <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center ml-6 group-hover:bg-[#C8A45E] transition">
+                                <i class="bi bi-envelope-fill gold-text text-2xl group-hover:text-white transition"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400 mb-1">אימייל</p>
+                                <p class="text-xl font-bold">office@krispelaw.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center group">
+                            <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center ml-6 group-hover:bg-[#C8A45E] transition">
+                                <i class="bi bi-geo-alt-fill gold-text text-2xl group-hover:text-white transition"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400 mb-1">כתובת</p>
+                                <p class="text-xl font-bold">דוד רמז 4, גדרה</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl p-10 shadow-2xl relative overflow-hidden" data-aos="fade-right">
+                    <h3 class="text-3xl font-bold text-[#0E2441] mb-8">שלחו לנו הודעה</h3>
+
+                    <form id="contact-form" class="transition-all duration-500">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2">שם מלא *</label>
+                                <input type="text" name="name" required
+                                       class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#C8A45E] focus:bg-white transition text-gray-900"
+                                       placeholder="ישראל ישראלי">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold mb-2">טלפון *</label>
+                                <input type="tel" name="phone" required
+                                       class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#C8A45E] focus:bg-white transition text-gray-900"
+                                       placeholder="050-0000000">
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">אימייל</label>
+                            <input type="email" name="email"
+                                   class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#C8A45E] focus:bg-white transition text-gray-900"
+                                   placeholder="example@email.com">
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">כיצד נוכל לעזור? *</label>
+                            <textarea name="message" required
+                                      class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#C8A45E] focus:bg-white transition text-gray-900 resize-none"
+                                      rows="4" placeholder="פרט בקצרה את נושא הפנייה..."></textarea>
+                        </div>
+
+                        <div class="flex items-start mb-8 text-right">
+                            <div class="flex items-center h-5">
+                                <input id="privacy" name="privacy_agreed" type="checkbox" required
+                                       class="w-4 h-4 text-[#C8A45E] border-gray-300 rounded focus:ring-[#C8A45E] cursor-pointer">
+                            </div>
+                            <div class="mr-3 text-sm">
+                                <label for="privacy" class="font-medium text-gray-700 cursor-pointer leading-tight">
+                                    אני מאשר/ת שקראתי והסכמתי ל<a href="privacy.html" class="text-[#C8A45E] hover:underline font-bold">מדיניות הפרטיות</a> של המשרד.
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                                class="w-full bg-[#C8A45E] text-white font-bold py-4 rounded-xl hover:bg-[#b5952f] transition transform hover:-translate-y-1 shadow-lg text-lg flex items-center justify-center group">
+                            <span class="ml-2">שליחת פנייה</span>
+                            <i class="bi bi-send-fill transition-transform group-hover:-translate-x-1 group-hover:translate-y-1"></i>
+                        </button>
+                    </form>
+
+                    <div id="form-status" class="hidden mt-6 p-4 rounded-xl text-center font-bold text-lg transition-all duration-300"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer class="bg-[#0B1D33] text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right border-b border-gray-800 pb-8 mb-8">
+        <div>
+            <img src="images/logo1.png" alt="לוגו YK" class="h-16 mb-4 mx-auto md:mx-0 grayscale brightness-200 contrast-0">
+            <p class="mb-4">משרד בוטיק מוביל המעניק שירות משפטי מקיף, מקצועי ואישי בתחומי המקרקעין, המשפחה והמסחר.</p>
+        </div>
+        <div>
+            <h4 class="text-white font-bold text-lg mb-4">קישורים מהירים</h4>
+            <ul class="space-y-2">
+                <li><a href="#home" class="hover:text-[#C8A45E] transition">דף הבית</a></li>
+                <li><a href="#about" class="hover:text-[#C8A45E] transition">אודות המשרד</a></li>
+                <li><a href="#practices" class="hover:text-[#C8A45E] transition">תחומי עיסוק</a></li>
+                <li><a href="#contact" class="hover:text-[#C8A45E] transition">צור קשר</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-white font-bold text-lg mb-4">פרטי התקשרות</h4>
+            <ul class="space-y-2">
+                <li><i class="bi bi-geo-alt-fill ml-2"></i> דוד רמז 4, גדרה</li>
+                <li><i class="bi bi-telephone-fill ml-2"></i> 052-3849777</li>
+                <li><i class="bi bi-envelope-fill ml-2"></i> office@krispelaw.com</li>
+                <li class="pt-2 flex justify-center md:justify-start space-x-4 space-x-reverse">
+                    <a href="#" class="text-2xl hover:text-[#C8A45E] transition"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-2xl hover:text-[#C8A45E] transition"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-2xl hover:text-[#C8A45E] transition"><i class="bi bi-whatsapp"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center text-sm">
+        <p>© 2024 יוסף קריספל משרד עורכי דין וגישור. כל הזכויות שמורות. | נבנה ב-❤️ ע"י <a href="#" class="hover:text-[#C8A45E]">דיגיטל בוטיק</a></p>
+    </div>
+</footer>
+<script>
+    // בדיקה שהספרייה נטענה
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 1000,
+        });
+    } else {
+        // אם הספרייה לא נטענה, נציג את האלמנטים בכל מקרה כדי שהאתר לא יהיה ריק
+        document.querySelectorAll('[data-aos]').forEach(el => el.style.opacity = 1);
+    }
+</script>
+
+<script src="main.js"></script>
+
+</body>
+</html>

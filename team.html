@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>נבחרת המשרד | יוסף קריספל משרד עורכי דין</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>body{font-family:'Heebo',sans-serif;}</style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+<nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-24 items-center">
+            <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='index.html'">
+                <img src="images/logo1.png" alt="לוגו YK" class="h-20 w-auto ml-3">
+                <div class="border-r-2 border-gray-300 pr-3 mr-1">
+                    <span class="block text-xl font-bold text-[#0E2441] leading-none">יוסף קריספל</span>
+                    <span class="block text-sm text-[#C8A45E] font-medium tracking-wide">משרד עורכי דין וגישור</span>
+                </div>
+            </div>
+
+            <div class="hidden md:flex space-x-8 space-x-reverse items-center">
+                <a href="index.html" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
+                    בית
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="about.html" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
+                    אודות
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="team.html" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
+                    נבחרת המשרד
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="index.html#practices" class="nav-link text-gray-700 hover:text-[#C8A45E] font-medium transition relative group">
+                    תחומי עיסוק
+                    <span class="absolute bottom-0 right-0 w-0 h-0.5 bg-[#C8A45E] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="contact.html" class="bg-[#0E2441] text-white px-7 py-2.5 rounded-full hover:bg-[#C8A45E] transition duration-300 font-bold shadow-lg hover:shadow-[#C8A45E]/30 transform hover:-translate-y-0.5">
+                    צור קשר
+                </a>
+            </div>
+
+            <div class="md:hidden">
+                <button id="mobileMenuBtn" type="button" class="text-[#0E2441] hover:text-[#C8A45E] focus:outline-none">
+                    <i class="bi bi-list text-4xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t absolute w-full shadow-xl">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+            <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md">בית</a>
+            <a href="about.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md">אודות המשרד</a>
+            <a href="team.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-[#C8A45E] rounded-md">הצוות שלנו</a>
+            <a href="contact.html" class="block px-3 py-3 text-base font-bold text-[#C8A45E] hover:bg-gray-50 rounded-md">צור קשר</a>
+        </div>
+    </div>
+</nav>
+<header class="bg-[#0E2441] py-20 text-center text-white relative mt-24">
+    <h1 class="text-4xl md:text-5xl font-bold relative z-10">ההון האנושי</h1>
+    <p class="mt-4 text-gray-300 text-lg">שילוב של ניסיון עשיר ורוח צעירה ונחושה</p>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 py-16 w-full flex-grow">
+
+    <div class="flex flex-col md:flex-row bg-white rounded-3xl shadow-xl overflow-hidden mb-16 border hover:border-[#C8A45E] transition duration-300">
+        <div class="md:w-1/3 bg-gray-200 h-96 md:h-auto relative">
+            <img src="images/פרופיל_אבא1.jpg" alt="עו"ד יוסף קריספל" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+        </div>
+        <div class="md:w-2/3 p-10 md:p-12 flex flex-col justify-center">
+            <div class="flex items-center mb-4">
+                <span class="bg-[#C8A45E] text-white px-3 py-1 text-sm font-bold rounded-full ml-3">מייסד המשרד</span>
+                <span class="text-gray-500 text-sm">LL.B, מגשר מוסמך</span>
+            </div>
+            <h2 class="text-3xl font-bold text-[#0E2441] mb-4">עו"ד יוסף קריספל</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                עם עשרות שנות ניסיון בניהול תיקים מורכבים, יוסף מביא עמו ראייה אסטרטגית רחבה ויכולת גישור נדירה.
+                מומחה בדיני משפחה, ירושות ומקרקעין. המוטו שלו: "לפתור משברים, לא לייצר אותם".
+            </p>
+            <div class="flex gap-4">
+                <a href="contact.html" class="text-[#0E2441] font-bold border-b-2 border-[#C8A45E] hover:text-[#C8A45E] transition">צור קשר עם יוסף</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row bg-white rounded-3xl shadow-xl overflow-hidden border hover:border-[#C8A45E] transition duration-300">
+        <div class="md:w-1/3 bg-gray-200 h-96 md:h-auto relative order-1 md:order-2">
+            <img src="images/פרופיל%20מאור1.jpg" alt="עו"ד מאור קריספל" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+        </div>
+        <div class="md:w-2/3 p-10 md:p-12 flex flex-col justify-center order-2 md:order-1">
+            <div class="flex items-center mb-4">
+                <span class="bg-[#0E2441] text-white px-3 py-1 text-sm font-bold rounded-full ml-3">שותף</span>
+                <span class="text-gray-500 text-sm">LL.B, B.Sc Computer Science</span>
+            </div>
+            <h2 class="text-3xl font-bold text-[#0E2441] mb-2">עו"ד מאור קריספל</h2>
+            <h3 class="text-lg text-[#C8A45E] font-medium mb-6">מנהל מחלקת תעבורה, נזיקין וחדשנות</h3>
+
+            <p class="text-gray-600 mb-8 leading-relaxed">
+                מאור מביא לשולחן שילוב ייחודי של ידע משפטי חד עם חשיבה אנליטית מעולמות ההייטק.
+                מתמחה בייצוג בתיקי תעבורה מורכבים, תביעות נזיקין ועסקאות מקרקעין, תוך שימוש בכלים טכנולוגיים מתקדמים לניתוח התיק.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <div class="bg-gray-50 p-3 rounded-lg flex items-center">
+                    <i class="bi bi-car-front-fill text-2xl text-[#C8A45E] ml-3"></i>
+                    <div>
+                        <span class="block font-bold text-[#0E2441] text-sm">דיני תעבורה</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg flex items-center">
+                    <i class="bi bi-bandaid-fill text-2xl text-[#C8A45E] ml-3"></i>
+                    <div>
+                        <span class="block font-bold text-[#0E2441] text-sm">נזיקין וגוף</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-3 rounded-lg flex items-center">
+                    <i class="bi bi-houses-fill text-2xl text-[#C8A45E] ml-3"></i>
+                    <div>
+                        <span class="block font-bold text-[#0E2441] text-sm">עסקאות מקרקעין</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <a href="contact.html" class="text-[#0E2441] font-bold border-b-2 border-[#C8A45E] hover:text-[#C8A45E] transition">צור קשר עם מאור</a>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="bg-[#0B1D33] text-gray-400 py-8 text-center text-sm mt-auto">
+    <div class="mb-4">
+        <a href="privacy.html" class="hover:text-white mx-2 transition">מדיניות פרטיות</a> |
+        <a href="accessibility.html" class="hover:text-white mx-2 transition">הצהרת נגישות</a>
+    </div>
+    <p>© 2024 יוסף קריספל משרד עורכי דין. נבנה באהבה.</p>
+</footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>
