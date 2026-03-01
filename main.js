@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initCookieConsent();
     injectFloatingWidgets();
     initMobileMenu();
-    applySavedAccessibilitySettings(); // שחזור הגדרות נגישות בטעינת דף
+    applySavedAccessibilitySettings();
+    initBackToTop();
+    initContactForm();
 });
 
 /* --- 1. Accessibility Engine (מנוע הנגישות) --- */
@@ -51,6 +53,10 @@ function injectFloatingWidgets() {
             <i class="bi bi-whatsapp"></i>
         </a>
 
+        <button id="back-to-top" class="fixed bottom-28 left-5 z-50 bg-[#C8A45E] text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-[#b8944e] transition-all duration-300 opacity-0 pointer-events-none" aria-label="חזרה למעלה">
+            <i class="bi bi-arrow-up text-xl"></i>
+        </button>
+
         <div class="fixed bottom-6 right-6 z-50 group">
             <button id="a11yToggleBtn" onclick="toggleAccessMenu()" 
                 aria-label="פתח תפריט נגישות" aria-expanded="false"
@@ -89,7 +95,7 @@ function injectFloatingWidgets() {
                     </button>
                     
                     <div class="text-center pt-2 border-t mt-2">
-                        <a href="accessibility.html" class="text-xs text-blue-600 underline">הצהרת נגישות</a>
+                        <a href="/accessibility/" class="text-xs text-blue-600 underline">הצהרת נגישות</a>
                     </div>
                 </div>
             </div>
@@ -220,7 +226,7 @@ function initCookieConsent() {
                 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
                     <p class="text-sm text-gray-300 text-center md:text-right">
                         🍪 אתר זה עושה שימוש בקבצי Cookies על מנת לשפר את חווית הגלישה. 
-                        <a href="privacy.html" class="underline text-[#C8A45E] hover:text-white">למידע נוסף</a>
+                        <a href="/privacy/" class="underline text-[#C8A45E] hover:text-white">למידע נוסף</a>
                     </p>
                     <button onclick="acceptCookies()" class="bg-[#C8A45E] text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-[#b5952f] transition shadow-lg whitespace-nowrap">
                         אני מסכים/ה
@@ -259,55 +265,75 @@ function initMobileMenu() {
         });
     }
 }
-document.getElementById("contact-form").addEventListener("submit", async function(event) {
-    event.preventDefault(); // מונע מהדף להתרענן או לעבור לאתר אחר
 
-    const form = event.target;
-    const status = document.getElementById("form-status");
-    const button = form.querySelector("button");
-    const originalBtnText = button.innerHTML;
+function initBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
 
-    // 1. חיווי "שולח..."
-    button.disabled = true;
-    button.innerHTML = `<i class="bi bi-hourglass-split animate-spin ml-2"></i> שולח...`;
-
-    // 2. הכנת הנתונים
-    const data = new FormData(form);
-
-    // 3. שליחה ל-Formspree ברקע
-    try {
-        const response = await fetch("https://formspree.io/f/xnjvvlde", {
-            method: 'POST',
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
-
-        if (response.ok) {
-            // 4. חיווי הצלחה מדליק
-            status.classList.remove('hidden', 'bg-red-100', 'text-red-700');
-            status.classList.add('bg-green-100', 'text-green-700', 'animate-bounce');
-            status.innerHTML = `<i class="bi bi-check-circle-fill ml-2"></i> פנייתך התקבלה בהצלחה! נחזור אליך בהקדם.`;
-
-            form.reset(); // איפוס הטופס
-            button.innerHTML = `<i class="bi bi-check2-all ml-2"></i> נשלח!`;
-
-            // הסתרת הטופס אחרי 2 שניות (אופציונלי)
-            setTimeout(() => {
-                form.style.opacity = '0.3';
-                form.style.pointerEvents = 'none';
-            }, 2000);
-
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            btn.classList.remove('opacity-0', 'pointer-events-none');
         } else {
-            throw new Error();
+            btn.classList.add('opacity-0', 'pointer-events-none');
         }
-    } catch (error) {
-        // חיווי שגיאה
-        status.classList.remove('hidden', 'bg-green-100', 'text-green-700');
-        status.classList.add('bg-red-100', 'text-red-700');
-        status.innerHTML = `<i class="bi bi-exclamation-triangle-fill ml-2"></i> אופס! הייתה שגיאה. נסה שנית או התקשר אלינו.`;
-        button.disabled = false;
-        button.innerHTML = originalBtnText;
+    });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const status = document.getElementById('form-status');
+    const button = form.querySelector('button');
+    const originalBtnText = button ? button.innerHTML : '';
+
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        if (button) {
+            button.disabled = true;
+            button.innerHTML = `<i class="bi bi-hourglass-split animate-spin ml-2"></i> שולח...`;
+        }
+
+        const data = new FormData(form);
+
+        try {
+            // Formspree form — emails are sent to krispelaw@gmail.com
+            // To change the recipient, update the Formspree dashboard at https://formspree.io
+            const response = await fetch("https://formspree.io/f/xnjvvlde", {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                window.location.href = "/thank-you/";
+                return;
+            }
+            throw new Error();
+        } catch (error) {
+            if (status) {
+                status.classList.remove('hidden', 'bg-green-100', 'text-green-700');
+                status.classList.add('bg-red-100', 'text-red-700');
+                status.innerHTML = `<i class="bi bi-exclamation-triangle-fill ml-2"></i> אופס! הייתה שגיאה. נסה שנית או התקשר אלינו.`;
+            }
+            if (button) {
+                button.disabled = false;
+                button.innerHTML = originalBtnText;
+            }
+        }
+    });
+}
+
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => preloader.remove(), 500);
     }
 });
+
