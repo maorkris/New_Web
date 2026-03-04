@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     applySavedAccessibilitySettings();
     initBackToTop();
-    initContactForm();
+    // initContactForm();
 });
 
 /* --- 1. Accessibility Engine (מנוע הנגישות) --- */
