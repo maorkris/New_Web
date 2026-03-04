@@ -148,10 +148,12 @@
                         <p class="text-xs text-gray-500 font-bold">השאירו פרטים ונחזור אליכם</p>
                     </div>
 
-                    <form id="contact-form" action="https://formsubmit.co/krispelaw@gmail.com" method="POST" class="space-y-4">
+                    <form id="contact-form" action="https://formsubmit.co/el/morita" method="POST" class="space-y-4">
 
                         <input type="hidden" name="_subject" value="פנייה חדשה מאתר משרד עורכי הדין!">
-                        <input type="hidden" name="_next" value="../thank-you/index.html">                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://krispelaw.com/thank-you/index.html">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_replyto" value="%email%">
 
                         <div>
                             <label class="text-xs font-bold text-gray-700 mr-1">שם מלא</label>
@@ -174,8 +176,8 @@
                         </div>
 
                         <div class="flex items-start text-xs text-gray-500 pb-2">
-                            <input type="checkbox" required class="mt-1 ml-2 accent-[#C8A45E]">
-                            <span>אני מאשר את <a href="../privacy/" class="underline text-[#0E2441] font-bold">מדיניות הפרטיות</a></span>
+                            <input type="checkbox" name="privacy_approved" required class="mt-1 ml-2 accent-[#C8A45E]">
+                            <span>אני מאשר את <a href="/privacy/" target="_blank" class="underline text-[#0E2441] font-bold">מדיניות הפרטיות</a></span>
                         </div>
 
                         <button type="submit" class="w-full bg-[#0E2441] text-white py-3 rounded-xl font-bold text-sm shadow-lg hover:bg-[#C8A45E] transition-colors duration-300 flex justify-center items-center">
@@ -183,7 +185,6 @@
                             <i class="bi bi-send-fill mr-2"></i>
                         </button>
                     </form>
-
                 </div>
 
                 <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-1/3 h-1 bg-gray-500 rounded-full z-20"></div>
