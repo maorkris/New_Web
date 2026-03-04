@@ -281,52 +281,52 @@ function initBackToTop() {
     btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-}
+// }
 
-function initContactForm() {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
-
-    const status = document.getElementById('form-status');
-    const button = form.querySelector('button');
-    const originalBtnText = button ? button.innerHTML : '';
-
-    form.addEventListener('submit', async function(event) {
-        event.preventDefault();
-
-        if (button) {
-            button.disabled = true;
-            button.innerHTML = `<i class="bi bi-hourglass-split animate-spin ml-2"></i> שולח...`;
-        }
-
-        const data = new FormData(form);
-
-        try {
-            // Formspree form — emails are sent to krispelaw@gmail.com
-            // To change the recipient, update the Formspree dashboard at https://formspree.io
-            const response = await fetch("https://formspree.io/f/xnjvvlde", {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                window.location.href = "/thank-you/";
-                return;
-            }
-            throw new Error();
-        } catch (error) {
-            if (status) {
-                status.classList.remove('hidden', 'bg-green-100', 'text-green-700');
-                status.classList.add('bg-red-100', 'text-red-700');
-                status.innerHTML = `<i class="bi bi-exclamation-triangle-fill ml-2"></i> אופס! הייתה שגיאה. נסה שנית או התקשר אלינו.`;
-            }
-            if (button) {
-                button.disabled = false;
-                button.innerHTML = originalBtnText;
-            }
-        }
-    });
+// function initContactForm() {
+//     const form = document.getElementById('contact-form');
+//     if (!form) return;
+//
+//     const status = document.getElementById('form-status');
+//     const button = form.querySelector('button');
+//     const originalBtnText = button ? button.innerHTML : '';
+//
+//     form.addEventListener('submit', async function(event) {
+//         event.preventDefault();
+//
+//         if (button) {
+//             button.disabled = true;
+//             button.innerHTML = `<i class="bi bi-hourglass-split animate-spin ml-2"></i> שולח...`;
+//         }
+//
+//         const data = new FormData(form);
+//
+//         try {
+//             // Formspree form — emails are sent to krispelaw@gmail.com
+//             // To change the recipient, update the Formspree dashboard at https://formspree.io
+//             const response = await fetch("https://formspree.io/f/xnjvvlde", {
+//                 method: 'POST',
+//                 body: data,
+//                 headers: { 'Accept': 'application/json' }
+//             });
+//
+//             if (response.ok) {
+//                 window.location.href = "/thank-you/";
+//                 return;
+//             }
+//             throw new Error();
+//         } catch (error) {
+//             if (status) {
+//                 status.classList.remove('hidden', 'bg-green-100', 'text-green-700');
+//                 status.classList.add('bg-red-100', 'text-red-700');
+//                 status.innerHTML = `<i class="bi bi-exclamation-triangle-fill ml-2"></i> אופס! הייתה שגיאה. נסה שנית או התקשר אלינו.`;
+//             }
+//             if (button) {
+//                 button.disabled = false;
+//                 button.innerHTML = originalBtnText;
+//             }
+//         }
+//     });
 }
 
 window.addEventListener('load', () => {
