@@ -583,7 +583,13 @@
                 <div class="bg-white rounded-3xl p-10 shadow-2xl relative overflow-hidden" data-aos="fade-right">
                     <h3 class="text-3xl font-bold text-[#0E2441] mb-8">שלחו לנו הודעה</h3>
 
-                    <form id="contact-form" class="transition-all duration-500">
+                    <form id="contact-form" action="https://formsubmit.co/krispelaw@gmail.com" method="POST" class="transition-all duration-500">
+
+                        <input type="hidden" name="_subject" value="פנייה חדשה מאתר משרד עורכי הדין!">
+                        <input type="hidden" name="_next" value="https://krispelaw.com/thank-you/index.html">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label class="block text-gray-700 text-sm font-bold mb-2">שם מלא *</label>
@@ -600,8 +606,8 @@
                         </div>
 
                         <div class="mb-6">
-                            <label class="block text-gray-700 text-sm font-bold mb-2">אימייל</label>
-                            <input type="email" name="email"
+                            <label class="block text-gray-700 text-sm font-bold mb-2">אימייל *</label>
+                            <input type="email" name="email" required
                                    class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#C8A45E] focus:bg-white transition text-gray-900"
                                    placeholder="example@email.com">
                         </div>
